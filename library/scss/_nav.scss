@@ -250,8 +250,22 @@ the navs on the site so our css is cleaner
 and more scalable.
 */
 
-nav[role="navigation"] {
-	display: none;
+nav{
+	position:fixed;
+	width: 60px;
+	z-index:100;
+	text-align:center;
+	background-color:black;
+	left:0;
+	h1{
+		margin: 24px auto;
+		display: block;
+		width: 24px;
+		a{
+			display: block;
+		}
+	}
+
 
 	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
 		display: block;

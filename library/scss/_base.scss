@@ -7,11 +7,12 @@ html {
 	background: $white;
 	}
 body {
-	font-family: $serif;
+	font-family: $sans-serif;
 	font-size: 100%;
 	line-height: 1.5;
 	color: $text-color;
 	overflow-x: hidden;
+	padding-left:60px;
 }
 html, body {
 	height: 100%;
@@ -159,6 +160,7 @@ a, a:visited {
 		for mobile devices.
 		*/
 		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+		text-decoration: none;
 	}
 }
 
@@ -169,7 +171,7 @@ H1, H2, H3, H4, H5 STYLES
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	font-family: $sans-serif;
 	text-rendering: optimizelegibility;
-	font-weight: 500;
+	font-weight: 200;
 	margin: 0;
 	line-height: 1.6;
 	/*
@@ -178,7 +180,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	*/
 
 	/* removing text decoration from all headline links */
-	a {
+	a:link,a:visited,a:hover,a:focus,a:active {
 		text-decoration: none;
 	}
 }
@@ -191,13 +193,15 @@ h1, .h1 {
 
 h2, .h2 {
 	//@include rem-fallback(font-size, 1.75);
-	font-size: 1.75em;
-	line-height: 1.4;
+	font-size: 4.375em;
+	line-height: 1;
+	color:#E10800;
 }
 
 h3, .h3 {
 	//@include rem-fallback(font-size, 1.125);
-	font-size: 1.125em;
+	font-size: 3.125em;
+	color:#E10800;
 }
 
 h4, .h4 {
@@ -212,6 +216,9 @@ h5, .h5 {
 	line-height: 2.09;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+}
+.red-text{
+	color:#E10800;
 }
 
 /*********************

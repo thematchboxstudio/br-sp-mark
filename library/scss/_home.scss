@@ -11,6 +11,7 @@
 	background-size: cover;
 	overflow: hidden;
 	position:relative;
+	opacity:.8;
 
 	img{
 		width:100%;
@@ -21,7 +22,7 @@
     	width: 100%;
     	transform: scale(1.2);
     	-webkit-transform: scale(1.2);
-    	 transform-origin: 30% 50%;
+    	transform-origin: 30% 50%;
 		-webkit-transform-origin: 30% 50%;
     }
 }
@@ -36,6 +37,17 @@
 // source{
 
 // }
+
+//****************** ICONS *******************
+
+.case-study{
+	background-color:$space-gray;
+}
+
+
+
+
+
 //****************** ICONS *******************
 
 .icons{

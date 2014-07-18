@@ -575,10 +575,10 @@ really slow down your CSS. Don't overdue it.
 BUTTONS
 *********************/
 .button, .button:visited {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  border: 1px solid #022949;
-  border-top-color: #033a66;
-  border-left-color: #033a66;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  border: 1px solid #9f0600;
+  border-top-color: #bd0700;
+  border-left-color: #bd0700;
   padding: 4px 12px;
   color: white;
   display: inline-block;
@@ -590,26 +590,26 @@ BUTTONS
   margin-bottom: 20px;
   line-height: 21px;
   border-radius: 4px;
-  background-color: #034070;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#044e89), to(#034070));
-  background-image: -webkit-linear-gradient(top, #044e89, #034070);
-  background-image: linear-gradient(to bottom, #044e89, #034070);
+  background-color: #c80700;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e10800), to(#c80700));
+  background-image: -webkit-linear-gradient(top, #e10800, #c80700);
+  background-image: linear-gradient(to bottom, #e10800, #c80700);
 }
 .button:hover, .button:focus, .button:visited:hover, .button:visited:focus {
   color: white;
-  border: 1px solid #022949;
-  border-top-color: #011626;
-  border-left-color: #011626;
-  background-color: #033257;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#034070), to(#033257));
-  background-image: -webkit-linear-gradient(top, #034070, #033257);
-  background-image: linear-gradient(to bottom, #034070, #033257);
+  border: 1px solid #9f0600;
+  border-top-color: #7b0400;
+  border-left-color: #7b0400;
+  background-color: #ae0600;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c80700), to(#ae0600));
+  background-image: -webkit-linear-gradient(top, #c80700, #ae0600);
+  background-image: linear-gradient(to bottom, #c80700, #ae0600);
 }
 .button:active, .button:visited:active {
-  background-color: #044e89;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#034070), to(#044e89));
-  background-image: -webkit-linear-gradient(top, #034070, #044e89);
-  background-image: linear-gradient(to bottom, #034070, #044e89);
+  background-color: #e10800;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#c80700), to(#e10800));
+  background-image: -webkit-linear-gradient(top, #c80700, #e10800);
+  background-image: linear-gradient(to bottom, #c80700, #e10800);
 }
 
 .blue-button, .blue-button:visited {
@@ -691,11 +691,12 @@ html {
 }
 
 body {
-  font-family: "Georgia", Cambria, Times New Roman, Times, serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 100%;
   line-height: 1.5;
   color: #333333;
   overflow-x: hidden;
+  padding-left: 60px;
 }
 
 html, body {
@@ -829,7 +830,7 @@ LAYOUT & GRID STYLES
 }
 @media (min-width: 56em), (min-width: 56em) {
   .wrap {
-    max-width: 1200px;
+    max-width: 960px;
   }
 }
 
@@ -860,7 +861,7 @@ LAYOUT & GRID STYLES
 LINK STYLES
 *********************/
 a, a:visited {
-  color: #044e89;
+  color: #e10800;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
   /* on hover */
@@ -868,7 +869,7 @@ a, a:visited {
   /* mobile tap color */
 }
 a:hover, a:focus, a:visited:hover, a:visited:focus {
-  color: #03355c;
+  color: #b30600;
 }
 a:link, a:visited:link {
   /*
@@ -877,15 +878,16 @@ a:link, a:visited:link {
   for mobile devices.
   */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
 }
 
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   text-rendering: optimizelegibility;
-  font-weight: 500;
+  font-weight: 200;
   margin: 0;
   line-height: 1.6;
   /*
@@ -894,7 +896,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   */
   /* removing text decoration from all headline links */
 }
-h1 a, .h1 a, h2 a, .h2 a, h3 a, .h3 a, h4 a, .h4 a, h5 a, .h5 a {
+h1 a:link, h1 a:visited, h1 a:hover, h1 a:focus, h1 a:active, .h1 a:link, .h1 a:visited, .h1 a:hover, .h1 a:focus, .h1 a:active, h2 a:link, h2 a:visited, h2 a:hover, h2 a:focus, h2 a:active, .h2 a:link, .h2 a:visited, .h2 a:hover, .h2 a:focus, .h2 a:active, h3 a:link, h3 a:visited, h3 a:hover, h3 a:focus, h3 a:active, .h3 a:link, .h3 a:visited, .h3 a:hover, .h3 a:focus, .h3 a:active, h4 a:link, h4 a:visited, h4 a:hover, h4 a:focus, h4 a:active, .h4 a:link, .h4 a:visited, .h4 a:hover, .h4 a:focus, .h4 a:active, h5 a:link, h5 a:visited, h5 a:hover, h5 a:focus, h5 a:active, .h5 a:link, .h5 a:visited, .h5 a:hover, .h5 a:focus, .h5 a:active {
   text-decoration: none;
 }
 
@@ -904,12 +906,14 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 1.75em;
-  line-height: 1.4;
+  font-size: 4.375em;
+  line-height: 1;
+  color: #E10800;
 }
 
 h3, .h3 {
-  font-size: 1.125em;
+  font-size: 3.125em;
+  color: #E10800;
 }
 
 h4, .h4 {
@@ -922,6 +926,10 @@ h5, .h5 {
   line-height: 2.09;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.red-text {
+  color: #E10800;
 }
 
 /*********************
@@ -1502,7 +1510,7 @@ a.menu-trigger:hover, a.menu-trigger:active, a.menu-trigger:focus {
   font-size: 1rem;
   margin: 0;
   padding: 1.5em;
-  border-top: 1px solid #044e89;
+  border-top: 1px solid #e10800;
   background: white;
   text-transform: uppercase;
   letter-spacing: .25em;
@@ -1544,7 +1552,7 @@ a.menu-trigger:hover, a.menu-trigger:active, a.menu-trigger:focus {
   width: 6px;
 }
 #side::-webkit-scrollbar-track {
-  background: #044e89;
+  background: #e10800;
 }
 #side::-webkit-scrollbar-thumb {
   border-radius: 10px;
@@ -1583,11 +1591,24 @@ easily write one group of styles for
 the navs on the site so our css is cleaner
 and more scalable.
 */
-nav[role="navigation"] {
-  display: none;
+nav {
+  position: fixed;
+  width: 60px;
+  z-index: 100;
+  text-align: center;
+  background-color: black;
+  left: 0;
+}
+nav h1 {
+  margin: 24px auto;
+  display: block;
+  width: 24px;
+}
+nav h1 a {
+  display: block;
 }
 @media (min-width: 56em), (min-width: 56em) {
-  nav[role="navigation"] {
+  nav {
     display: block;
   }
 }
@@ -1692,7 +1713,7 @@ nav[role="navigation"] {
 .nav li.current-menu-item a,
 .nav li.current_page_item a,
 .nav li.current-page-ancestor a {
-  background: #044e89;
+  background: #e10800;
   color: white;
 }
 
@@ -1725,6 +1746,7 @@ view.
   background-size: cover;
   overflow: hidden;
   position: relative;
+  opacity: .8;
 }
 .feature-header img {
   width: 100%;
@@ -1739,6 +1761,10 @@ view.
   -ms-transform-origin: 30% 50%;
       transform-origin: 30% 50%;
   -webkit-transform-origin: 30% 50%;
+}
+
+.case-study {
+  background-color: #1a1a1a;
 }
 
 .icons {

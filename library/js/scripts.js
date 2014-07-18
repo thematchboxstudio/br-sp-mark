@@ -68,11 +68,6 @@ jQuery(document).ready(function($) {
 
 
 	// add all your scripts here
-
-
-
-
-
 	// CUSTOM MATCHBOX MENU CODE
 	// add class to nav based on page
 	$('.nav-btn-wrap a').each(function() {
@@ -276,5 +271,40 @@ win.scroll(function(event) {
 
 });
 
+
+// Custom jquery from scratch, yo
+
+// Adjust Height to window height
+$('nav,#video-container').height($(window).height());
+$(window).resize(function () {
+      $('nav,#video-container').height($(window).height());
+});
+
+// functions relative to scroll position!!!!!!!!! like magical parallax illusions!!! ex-CITED!!!
+$(window).scroll(function() {
+
+	// Variables to make things easier
+		var $win = $(window); // Simple shortcut
+		var windowHeight = $win.height(); // Detects height of browser window
+	    var scrolled = $(this).scrollTop(); // Detect position of scroll
+
+	// SMALLER THE DECIMAL = SLOWER SCROLLING SPEED
+	// WHOLE NUMBER = 1 = REGULAR SPEED
+	// WHOLE NUMBER = 2 = DOUBLE SPEED
+	// ADD "-" and container goes opposite way
+	var scrollSlower = (scrolled*.35) + 'px';
+	// I like to comment on everythang
+	// Helps if I need to come back and reuse this
+
+	// This activates it as soon as you scroll down
+	// The second condition stops it when it reaches the bottom of the window
+	// Useful for sticky navs and so simple
+	if (scrolled >= 0 && scrolled <= windowHeight) {
+		
+		// Test $('.case-study').addClass('TURNDOWNFORWHAT');
+		$('#video-container').css('transform', 'translate3d(0,' + scrollSlower +', 0)');
+	}
+
+});
 
 
