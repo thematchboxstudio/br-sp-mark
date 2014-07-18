@@ -13,6 +13,72 @@
 	position:relative;
 	opacity:.8;
 
+
+	.video-overlay{
+		width: 100%;
+		position:absolute;
+		z-index: 1000;
+
+		// vertical align stuff
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		.h1{
+			color:$white;
+			font-weight: 100;
+			text-align: center;
+			margin: 0 auto;
+			z-index: 99999;
+			padding:0 1em;
+
+			position: relative;
+			top: 42%;
+			transform: translateY(-42%);
+		}
+
+		.feature-contact-tab{
+			background-color:$accent;
+			color:$white;
+			display: inline-block;
+			position: absolute;
+			padding:15px;
+			right: 0;
+			bottom:8%;
+			
+			p{
+				font-size: 1em;
+				text-transform: lowercase !important;
+				font-weight: 100;
+				margin:0;
+
+				img{
+					display: block;
+					float: left;
+					width: 24px;
+					height: 24px;
+				}
+
+				span{
+						display: none;
+				
+					@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+						display: inline-block;
+						margin-left: 10px;
+					}
+
+				}
+			}
+		}
+		& > img{
+			height: 24px;
+			width:24px;
+			position:absolute;
+			margin: 0 auto;
+			left:0;right:0;
+			bottom:8%;
+		}
+	}
+
 	img{
 		width:100%;
 		height:100%;
@@ -68,16 +134,6 @@
 	}
 }
 
-//****************** COPY *******************
-
-.copy{
-	padding: 5em 0;
-
-	.fourcol{
-		margin-top:37px;
-	}
-}
-
 //****************** CASE STUDY INDEX *******************
 
 .case-study-index {
@@ -128,7 +184,7 @@
 	}
 
 	ul{
-		margin:1.25em;
+		margin:0;
 	}
 
 	li{
@@ -179,6 +235,122 @@
         margin-top: -47px;
         @include rem-fallback(font-size, 3.5);
     }
+}
+//****************** STYLE ELEMENTS *******************
+
+.style-elements{
+	background: url(../images/space-bg.jpg) no-repeat center center;
+	background-size: cover;
+	padding: 80px 0;
+
+	.style-illustrations{
+		padding: 0 5%;
+		margin-bottom: 2em;
+	}
+	.style-info{
+
+		.fourcol{
+			font-family: $sans-serif;
+			color: $gray;
+			background-color: rgba(255,255,255,.7);
+			display: inline-block;
+			width:100%;
+			position: relative;
+			margin-bottom: 2em;
+			@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+					width: 31.491712705%;
+				}
+			&.first{
+				color: $white;
+				background-color: $accent;
+				& div{
+					border-color:$white;
+				}
+			}
+
+			.style-type-icon{
+				min-height: 130px;
+				width: 15%;
+				float:left;
+				border-right:1px solid $gray;
+				position:relative;
+				display: block;
+				text-align: center;
+				padding:10px 0;
+				img{
+
+					max-height: 130px;
+					display: block;
+					@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+						width: 50%;
+						text-align: center;
+						margin:0 auto;
+					}
+				}
+			}
+			.style-type-desc{
+				width: 85%;
+				padding: 10px;
+				float:left;
+			}
+			.style-type-read{
+				padding: 6px 10px;
+				width: 85%;
+				text-align: right;
+				float:left;
+				position:absolute;
+				bottom:0;right:0;
+				border-top:1px solid $gray;
+				img{
+					display: inline-block;
+					margin-left: 6px;
+				}
+			}
+		}
+	}
+}
+
+
+//****************** BUTTONS AND FORMS *******************
+.copy-section{
+
+	.full-width-image{
+		background: url(../images/copy-bg.jpg) no-repeat center center;
+		background-size:cover;
+		height: 420px;
+		width: 100%;
+		padding:60px;
+		@include breakpoint(40em, $no-query: '.no-mediaqueries') {
+			height: 640px;
+		}
+	}
+	.wrap{
+		padding:40px 0;
+
+		.phone-copy-example img{
+			transform: translateY(-30%);
+			margin-bottom: -30%;
+
+			@include breakpoint(40em, $no-query: '.no-mediaqueries') {
+				transform: translateY(-40%);
+				margin-bottom: -40%;
+			}
+
+		}
+		.text-copy-example{
+			padding:15px;
+		}
+	}
+
+	.quote-copy{
+		background:$space-gray;
+		color: $white;
+		padding:60px 15%;
+		font-family: $sans-serif;
+		font-weight: 100;
+		text-align: center;
+	}
+	
 }
 
 

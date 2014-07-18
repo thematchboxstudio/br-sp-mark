@@ -275,9 +275,9 @@ win.scroll(function(event) {
 // Custom jquery from scratch, yo
 
 // Adjust Height to window height
-$('nav,#video-container').height($(window).height());
+$('nav,#video-container,.video-overlay').height($(window).height());
 $(window).resize(function () {
-      $('nav,#video-container').height($(window).height());
+      $('nav,#video-container,.video-overlay').height($(window).height());
 });
 
 // functions relative to scroll position!!!!!!!!! like magical parallax illusions!!! ex-CITED!!!
@@ -293,6 +293,7 @@ $(window).scroll(function() {
 	// WHOLE NUMBER = 2 = DOUBLE SPEED
 	// ADD "-" and container goes opposite way
 	var scrollSlower = (scrolled*.35) + 'px';
+	var scrollSlow = (scrolled*.65) + 'px';
 	// I like to comment on everythang
 	// Helps if I need to come back and reuse this
 
@@ -303,6 +304,7 @@ $(window).scroll(function() {
 		
 		// Test $('.case-study').addClass('TURNDOWNFORWHAT');
 		$('#video-container').css('transform', 'translate3d(0,' + scrollSlower +', 0)');
+		$('.video-overlay').css('transform', 'translate3d(0,' + scrollSlow +', 0)');
 	}
 
 });
