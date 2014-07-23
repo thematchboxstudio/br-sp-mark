@@ -189,13 +189,13 @@ $opacity-not-active: .25;
     -moz-osx-font-smoothing: grayscale;
 }
 .slick-prev {
-    left: -25px;
+    left: 25%;
     &:before {
         content: $slick-prev-character;
     }
 }
 .slick-next {
-    right: -25px;
+    right: 25%;
     &:before {
         content: $slick-next-character;
     }

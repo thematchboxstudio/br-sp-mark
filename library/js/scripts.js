@@ -96,13 +96,24 @@ jQuery(document).ready(function($) {
 	// END OF MENU CODE
 
 $(document).ready(function(){
-	 $('.slider').slick({
-	 	autoplay: false,
-	 	dots: true,
-	 	arrows: true,
-	 	infinite: true
+	$('.slider').slick({
+		autoplay: false,
+		dots: false,
+		infinite: true,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		responsive: [
+	    {
+	      breakpoint: 400,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	      }
+	    }
+	  ]
 	});
 });
+
 
 // $(window).scroll(function () {
 // 	var scroll = $(window).scrollTop();
@@ -155,6 +166,145 @@ var queries = [	{
 	context: 'desktop',
 	match: function() {
 		console.log('entering desktop');
+
+		// functions relative to scroll position!!!!!!!!! like magical parallax illusions!!! ex-CITED!!!
+		$(window).scroll(function() {
+
+			// Variables to make things easier
+				var $win = $(window); // Simple shortcut
+				var windowHeight = $win.height(); // Detects height of browser window
+			    var scrolled = $(this).scrollTop(); // Detect position of scroll
+
+			// SMALLER THE DECIMAL = SLOWER SCROLLING SPEED
+			// WHOLE NUMBER = 1 = REGULAR SPEED
+			// WHOLE NUMBER = 2 = DOUBLE SPEED
+			// ADD "-" and container goes opposite way
+			var scrollSlow = (scrolled*.65) + 'px';
+			var scrollSlower = (scrolled*.35) + 'px';
+			// I like to comment on everythang
+			// Helps if I need to come back and reuse this
+
+			// This activates it as soon as you scroll down
+			// The second condition stops it when it reaches the bottom of the window
+			// Useful for sticky navs and so simple
+			if (scrolled >= 0 && scrolled <= windowHeight) {
+				
+				// Test $('.case-study').addClass('TURNDOWNFORWHAT');
+				$('#video-container').css('transform', 'translate3d(0,' + scrollSlower +', 0)');
+				$('.video-overlay').css('transform', 'translate3d(0,' + scrollSlow +', 0)');
+			}else{
+				$('.video-overlay').css('transform', 'translate3d(0, 0, 0)');
+			}
+
+			var casestudyHeight = $('#case-study').outerHeight();
+			var casestudyScroll = ((scrolled-windowHeight)*.65) + 'px';
+			var thirdSlide = windowHeight+casestudyHeight;
+
+			if (scrolled >= windowHeight && scrolled <= thirdSlide) {
+				
+				// Test $('.case-study').addClass('TURNDOWNFORWHAT');
+				$('#case-study').css('overflow','hidden');
+				$('#case-study .wrap').css('transform', 'translate3d(0,' + casestudyScroll +', 0)');
+			}else{
+				$('#case-study .wrap').css('transform', 'translate3d(0, 0, 0)');
+			}
+
+			var casestudiesHeight = $('#case-study-index').outerHeight();
+			var casestudiesScroll = ((scrolled-thirdSlide)*.65) + 'px';
+			var fourthSlide = thirdSlide+casestudiesHeight;
+		 
+			//if (scrolled >= thirdSlide && scrolled <= fourthSlide) {
+			//	
+			//	// Test $('.case-study').addClass('TURNDOWNFORWHAT');
+			//	$('#case-study-index').css('overflow','hidden');
+			//	$('#case-study-index .case-studies').css('transform', 'translate3d(0,' + casestudiesScroll +', 0)');
+			//}else{
+			//	$('#case-study-index .case-studies').css('transform', 'translate3d(0, 0, 0)');
+			//}
+
+			var styleelementsHeight = $('#style-elements').outerHeight();
+			var styleelementsScroll = ((scrolled-fourthSlide)*.65) + 'px';
+			var fifthSlide = fourthSlide+styleelementsHeight;
+
+			if (scrolled >= fourthSlide && scrolled <= fifthSlide) {
+				
+				// Test $('.case-study').addClass('TURNDOWNFORWHAT');
+				$('#style-elements').css('overflow','hidden');
+				$('#style-elements .wrap').css('transform', 'translate3d(' + styleelementsScroll +', 0, 0)');
+			}else{
+				$('#style-elements .wrap').css('transform', 'translate3d(0, 0, 0)');
+			}
+
+
+			var fullwidthimageHeight = $('#full-width-image').outerHeight();
+			var textcopyexampleHeight = $('#text-copy-example h2').outerHeight();
+			var anchorPhone = fourthSlide+fullwidthimageHeight-textcopyexampleHeight;
+
+			if (scrolled >= anchorPhone) {
+				$('#phone-img').addClass('slide-up');
+			}
+
+
+			var copysectionHeight = $('#copy-section').outerHeight();
+			
+			var phoneexampleStart = fifthSlide+fullwidthimageHeight;
+			var phoneexampleScroll = (-(scrolled-phoneexampleStart)*.65) + 'px'; 
+
+			var sixthSlide = fifthSlide+copysectionHeight;
+			var sixthSlideAdjusted = fifthSlide+copysectionHeight-windowHeight;
+
+			var copysectionScroll = ((scrolled-sixthSlideAdjusted)*.65) + 'px';
+
+			var buttonsformsHeight = $('#buttons-forms').outerHeight();
+			var seventhSlide = sixthSlide+buttonsformsHeight;
+
+			
+			if (scrolled >= phoneexampleStart && scrolled <= sixthSlideAdjusted) {
+				
+				// Test $('.case-study').addClass('TURNDOWNFORWHAT');
+				$('#copy-section .copy-section-container').css('overflow','hidden');
+				$('#copy-section .copy-section-container .wrap-one').css('transform', 'translate3d(' + phoneexampleScroll +', 0, 0)');
+			}else{
+				$('#copy-section .copy-section-container .wrap').css('transform', 'translate3d(0, 0, 0)');
+			}
+
+			if (scrolled >= sixthSlideAdjusted && scrolled <= seventhSlide) {
+				
+				// Test $('.case-study').addClass('TURNDOWNFORWHAT');
+				$('#copy-section').css('overflow','hidden');
+				$('#copy-section .copy-section-container').css('transform', 'translate3d(0,' + copysectionScroll +', 0)');
+			}else{
+				$('#copy-section .copy-section-container').css('transform', 'translate3d(0, 0, 0)');
+			}
+
+			// pixel counter on nav
+			$('.altitude h4').text((scrolled+14756)+'px');
+
+
+			// lets make the meter animate
+			if ( $('.meter').css('opacity') == '0' ) {
+			    // Animate the element's value from 0% to 110%:
+				$({someValue: 0}).animate({someValue: 68}, {
+					duration: 2000,
+					easing:'swing', // can be anything
+					step: function() { // called on every step
+						// Update the element's text with rounded-up value:
+						$('#sixty-eight').text(Math.ceil(this.someValue) + "%");
+					}
+				});
+				$({someValue: 0}).animate({someValue: 87}, {
+					duration: 2250,
+					easing:'swing', // can be anything
+					step: function() { // called on every step
+						// Update the element's text with rounded-up value:
+						$('#eighty-seven').text(Math.ceil(this.someValue) + "%");
+					}
+				});
+			}
+
+
+
+		});
 	}
 }
 ];
@@ -252,6 +402,7 @@ jQuery('textarea').leSlide({
 var win = $(window);
 
 var allMods = $(".animated");
+var allPaths = $(".path");
 
 allMods.each(function(i, el) {
   var el = $(el);
@@ -267,46 +418,85 @@ win.scroll(function(event) {
     if (el.visible(true) && !(el.hasClass("already-visible"))) {
       el.addClass("fade-in");
     }
+    
   });
 
 });
 
 
+
+
+
+
 // Custom jquery from scratch, yo
 
 // Adjust Height to window height
-$('nav,#video-container,.video-overlay').height($(window).height());
+$('#video-container,.video-overlay').height($(window).height());
+
+$(function() {
+	win = $(window);
+	x = win.width();
+	y = win.height();
+	h = Math.sqrt((x*x)+(y*y));// hypotenuse = diagonal length
+	h2 = h+200;
+	m = h2-x; // hypotenuse - width = overflow then divide by 2 for offset margin
+
+
+	$('.space-bg').css({
+		'width':h2,
+		'left':-m,
+		'top':-m
+	});
+});
+
+
+
+// Adjust Height to window height when Window is resized
 $(window).resize(function () {
-      $('nav,#video-container,.video-overlay').height($(window).height());
+    $('#video-container,.video-overlay').height($(window).height());
+    win = $(window);
+	x = win.width();
+	y = win.height();
+	h = Math.sqrt((x*x)+(y*y));// hypotenuse = diagonal length
+	h2 = h+200;
+	m = h2-x; // hypotenuse - width = overflow then divide by 2 for offset margin
+
+	// doesnt work well. the margins are off since they 
+	// form a square and not a mini screensize
+
+
+	$('.space-bg').css({
+		'width':h2,
+		'left':-m,
+		'top':-m
+	});
 });
 
-// functions relative to scroll position!!!!!!!!! like magical parallax illusions!!! ex-CITED!!!
-$(window).scroll(function() {
 
-	// Variables to make things easier
-		var $win = $(window); // Simple shortcut
-		var windowHeight = $win.height(); // Detects height of browser window
-	    var scrolled = $(this).scrollTop(); // Detect position of scroll
 
-	// SMALLER THE DECIMAL = SLOWER SCROLLING SPEED
-	// WHOLE NUMBER = 1 = REGULAR SPEED
-	// WHOLE NUMBER = 2 = DOUBLE SPEED
-	// ADD "-" and container goes opposite way
-	var scrollSlower = (scrolled*.35) + 'px';
-	var scrollSlow = (scrolled*.65) + 'px';
-	// I like to comment on everythang
-	// Helps if I need to come back and reuse this
 
-	// This activates it as soon as you scroll down
-	// The second condition stops it when it reaches the bottom of the window
-	// Useful for sticky navs and so simple
-	if (scrolled >= 0 && scrolled <= windowHeight) {
-		
-		// Test $('.case-study').addClass('TURNDOWNFORWHAT');
-		$('#video-container').css('transform', 'translate3d(0,' + scrollSlower +', 0)');
-		$('.video-overlay').css('transform', 'translate3d(0,' + scrollSlow +', 0)');
-	}
 
-});
+$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
+	});
+
+
+// LETS animate these SVG's!!!!
+
+var path = document.querySelector('.path');
+var length = path.getTotalLength();
+
+$('#length').text(length);
 
 

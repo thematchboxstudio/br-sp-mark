@@ -253,25 +253,92 @@ and more scalable.
 nav{
 	position:fixed;
 	width: 60px;
+	height:60px;
 	z-index:100;
 	text-align:center;
 	background-color:black;
 	left:0;
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		height:100%;
+		
+	}
 	h1{
-		margin: 24px auto;
-		display: block;
-		width: 24px;
-		a{
+			margin: 24px auto;
 			display: block;
+			width: 24px;
+			a{
+				display: block;
+			}
+		}
+
+
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			display: block;
+			}// * BP
+
+	ul{
+		display:none;
+
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			display: block;
+			}// * BP
+		li{
+			
+			height: 60px;
+			padding:14px;
+			border-radius:50%;
+			background:#000;
+			box-shadow: inset 0 0 30px 10px #000;
+
+			@include transition(background,.4s,ease-in-out);
+			&:hover{
+				background:rgba(#A9B3CD,.65);
+				
+				svg{
+					stroke:#A9B3CD;
+				}
+			}
+			svg{
+				width: 100%;
+				stroke:#4d4d4d;
+
+				@include transition(stroke,.3s,ease-in-out);
+			}
 		}
 	}
 
+	.altitude{
+		height: 60px;
+		@include transform(rotate(-90deg));
+		color:#4d4d4d;
+		text-align: left;
 
-	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
-		display: block;
-		}// * BP
-	
+		position:absolute;
+		left:-14px;
+		bottom:50px;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		h4{
+			font-size: 1.875rem;
+			font-weight: 200;
+			line-height: 1;
+		}
+		h5{
+			font-size: .625rem;
+			font-weight: 900;
+			line-height: 1;
+		}
+
+		display:none;
+
+		@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+			display: block;
+			}// * BP
 	}
+	
+}
 
 .nav {
 	border-bottom: 0;

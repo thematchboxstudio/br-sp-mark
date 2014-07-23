@@ -4,7 +4,7 @@
 GENERAL STYLES
 *********************/
 html {
-	background: $white;
+	background: $space-gray;
 	}
 body {
 	font-family: $sans-serif;
@@ -12,12 +12,70 @@ body {
 	line-height: 1.5;
 	color: $text-color;
 	overflow-x: hidden;
-	padding-left:60px;
+	
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		padding-left:60px;
+		}// * BP
 }
 html, body {
 	height: 100%;
 	}
 
+
+// JS MQ styles
+  html {
+       font-family: 'mobile';
+   }
+
+   * html { /* IE6 */
+       font-family: 'desktop'
+   }
+
+   *+html { /* IE7 */
+       font-family: 'desktop'
+   }
+
+   @media \0screen {
+       html {  /* IE8 */
+           font-family: 'desktop'
+       }
+   }
+
+   /* Reset your font families here!
+    ----------------------------------- */
+   body {
+       font-family: $sans-serif;
+   }
+
+   /* Queries for supported browsers.
+    ----------------------------------- */
+   body:after {
+       display: none;
+   }
+
+   @media screen and (min-width: $phone-landscape) {
+       html {
+           font-family: "skinny";
+       }
+       body:after {
+           content: "skinny";
+       }
+   }
+
+   @media screen and (min-width: $desktop) {
+       html {
+           font-family: "desktop";
+       }
+       body:after {
+           content: "desktop";
+       }
+   }
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+	  width: 90%;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
 
 @media only screen and (min-width: $tablet) {
 
@@ -189,26 +247,34 @@ h1, .h1 {
 	//@include rem-fallback(font-size, 2.5);
 	font-size: 2.625em;
 	line-height: 1.3333;
+	font-weight: 100;
 
 }
 
 h2, .h2 {
 	//@include rem-fallback(font-size, 1.75);
-	font-size: 4.375em;
+	font-size: 3.125em;
 	line-height: 1;
 	color:#E10800;
+	font-weight: 100;
+	@include breakpoint($tablet, $no-query: '.no-mediaqueries') {
+		font-size: 4.375em;
+	}
 }
 
 h3, .h3 {
 	//@include rem-fallback(font-size, 1.125);
 	font-size: 3.125em;
+	line-height: 1;
 	color:#E10800;
+	font-weight: 100;
 }
 
 h4, .h4 {
 	//@include rem-fallback(font-size, 1.1);
 	font-size: 2.0625em;
-	font-weight: 700;
+	line-height: 1;
+	font-weight: 100;
 }
 
 h5, .h5 {
@@ -217,8 +283,13 @@ h5, .h5 {
 	line-height: 2.09;
 	text-transform: uppercase;
 	letter-spacing: 2px;
+	font-weight: 100;
 }
-p{}
+p{
+	font-weight: 100;
+	line-height:2em;
+	margin-top:0;
+}
 .red-text{
 	color:#E10800;
 }
